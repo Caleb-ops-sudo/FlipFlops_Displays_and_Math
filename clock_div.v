@@ -5,12 +5,10 @@ module clock_div
 (
     input clock,
     input reset,
-    output reg div_clock,
+    output reg div_clock
     
-    wire clk_out[16:0]
-
-);
-
+  );
+wire clk_out[16:0];
 
 
 dff dff0 (
