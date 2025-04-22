@@ -2,13 +2,14 @@ module clock_div
 #(
     parameter DIVIDE_BY = 17
 )
+
 (
     input clock,
     input reset,
-    output reg div_clock
+    output div_clock
     
   );
-wire clk_out[16:0];
+wire clk_out[DIVIDE_BY - 1:0];
 
 
 dff dff0 (
@@ -143,10 +144,9 @@ dff dff16 (
 .reset(reset),
 .clock(clk_out[16]),
 .D(NotQ),
-.Q(div_clock)
+.Q(div_clk)
 
 );
-
 
 
 endmodule
