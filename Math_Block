@@ -5,10 +5,10 @@ module math_block(
     output [3:0] AminusB
 );
 
-wire [3:0] c_out; // for the adder
-wire [3:0] C_out; // for the sub
+wire [3:0] c_out;
+wire [3:0] B_out; 
 
-// 4 bit adder
+
 full_adder one(
 .m(0),
 .x(A[0]),
@@ -45,13 +45,13 @@ full_adder four(
 .sum(AplusB[3])
 );
 
-// 4 bit sub
+
 full_adder sub_one(
 .m(1),
 .x(A[0]),
 .y(B[0]),
 .c_in(1),
-.c_out(C_out[0]),
+.c_out(B_out[0]),
 .sum(AminusB[0])
 );
 
@@ -59,8 +59,8 @@ full_adder sub_two(
 .m(1),
 .x(A[1]),
 .y(B[1]),
-.c_in(C_out[0]),
-.c_out(C_out[1]),
+.c_in(B_out[0]),
+.c_out(B_out[1]),
 .sum(AminusB[1])
 );
 
@@ -68,8 +68,8 @@ full_adder sub_three(
 .m(1),
 .x(A[2]),
 .y(B[2]),
-.c_in(C_out[1]),
-.c_out(C_out[2]),
+.c_in(B_out[1]),
+.c_out(B_out[2]),
 .sum(AminusB[2])
 );
 
@@ -77,8 +77,8 @@ full_adder sub_four(
 .m(1),
 .x(A[3]),
 .y(B[3]),
-.c_in(C_out[2]),
-.c_out(C_out[3]),
+.c_in(B_out[2]),
+.c_out(B_out[3]),
 .sum(AminusB[3])
 );
 
