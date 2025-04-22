@@ -76,28 +76,6 @@ seven_seg_scanner seg_scanner (
 assign a_val = sw[3:0];
 assign b_val = sw[7:4];
 
-// Instantiate the math block
-math_block math_unit (
-.A(a_val),
-.B(b_val),
-.AplusB(sum_out),
-.AminusB(diff_out)
-);
-
-// Instantiate the segment decoder
-seven_seg_decoder seg_decoder (
-.A(a_val),
-.B(b_val),
-.AplusB(sum_out),
-.AminusB(diff_out),
-.anode(anode_out),
-.segs(seg)
-);
-
-// Output assignments
-assign an = anode_out;
-
-endmodule
 
     // Do not forget to wire up resets!!
 
