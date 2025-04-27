@@ -23,7 +23,7 @@ generate
 
     for (i=0; i < DIVIDE_BY; i = i + 1) begin
       
-    dff ddf1 (
+    dff clockdividermethod (
     .Default(1'b0),
     .D(dffNot_Q[i]),
     .clock(dff_Q[i]),
