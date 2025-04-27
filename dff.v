@@ -1,7 +1,8 @@
 
 
 module dff(
-input reset,
+    input reset,
+    input Default,
     input clock,
     input D,
     output reg Q,
