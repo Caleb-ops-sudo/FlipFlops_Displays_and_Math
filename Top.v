@@ -12,7 +12,6 @@ module top
 );
 
 wire div_clk_out;
-wire [3:0] anode_out;
 wire [3:0] a_val;
 wire [3:0] b_val;
 wire [3:0] sum_out;
@@ -21,14 +20,14 @@ wire [3:0] diff_out;
 clock_div #(.DIVIDE_BY(DIVIDE_BY)) dividerclk(
 .clock(clk),
 .reset(btnC),
-.div_clock(div_clk_out)
+.div_clk(div_clk_out)
 );
 
 
 seven_seg_scanner seg_scanner (
 .div_clock(div_clk_out),
 .Reset(btnC),
-.anode(anode_out)
+.anode(an)
 
 );
 
@@ -50,23 +49,11 @@ seven_seg_decoder seven_seg (
 .B(b_val),
 .AplusB(sum_out),
 .AminusB(diff_out),
-.anode(anode_out),
+.anode(an),
 .segs(seg)
 
 
 );
-
-
-
-assign an = anode_out;
-
-
-
-
-
-
-
-
 
 
     // Instantiate the clock divider...
